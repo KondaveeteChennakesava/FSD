@@ -1,0 +1,92 @@
+#s{
+	height:150%;
+	width: 100%;
+	background-color: whitesmoke;
+}
+#f{
+	height:180%;
+	width: 100%;
+	background-color: lightgray;
+	font-size: 260%;
+}
+#u{
+	float: left;
+	font-size: 260%;
+	color:#2AA7F5;
+	padding-left: 14%;
+	padding-top: 5%;
+}
+#o{
+	float: right;
+	font-size: 100%;
+	font-family: verdana;
+	padding-right: 14%;
+	padding-top: 5%;
+	font-weight: 700;
+}
+#k{
+	float: left;
+	font-size: 100%;
+	font-family: verdana;
+	padding-left: 14%;
+	padding-top: 5%;
+	font-weight: 700;
+
+}
+#l{
+	float: right;
+	font-size: 260%;
+	color:#fc0352;
+	padding-right: 14%;
+	padding-top: 5%;
+}
+#n{
+	float: right;
+	font-size: 260%;
+	color:#03fc5a;
+	padding-right: 14%;
+	padding-top: 5%;
+}
+#m{
+	float: right;
+	font-size: 260%;
+	color:#fcf403;
+	padding-right: 14%;
+	padding-top: 5%;
+}
+#r{
+	float: right;
+	font-size: 260%;
+	color:#03f4fc;
+	padding-right: 14%;
+	padding-top: 5%;
+}
+#y{
+	float: left;
+	font-size: 260%;
+	color:#03fc5a;
+	padding-left: 14%;
+	padding-top: 5%;
+}
+#g{
+	float: left;
+	font-size: 260%;
+	color:#fcf403;
+	padding-left: 14%;
+	padding-top: 5%;
+}
+#e{
+	float: left;
+	font-size: 260%;
+	color:#fc0352;
+	padding-left: 14%;
+	padding-top: 5%;
+}
+progress{
+	width: 90%;
+	height: 20%;
+	background-color:red;
+}
+h3{
+	color: #fc0703;
+}

@@ -1,0 +1,33 @@
+.col-md-2
+{
+	margin-right:20px;
+	width:236px;
+	text-align:center;
+	height:50px;
+	padding-top:10px;
+	background-color: hotpink;
+}
+.col-md-6{
+	background-color: hotpink;
+}
+#c1
+{
+	margin-right:530px;
+	width:235px;
+	text-align:center;
+	padding-top:10px;
+	height:50px;
+}
+#c2
+{ 
+    margin-left:515px;
+	width:235px;
+	text-align:center;
+	padding-top:10px;
+	height:50px;
+}
+a
+{
+	color:white;
+	text-decoration: none;
+}

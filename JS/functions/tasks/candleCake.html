@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <center>
+    <img id="candle" src="candles.jpg" height="400px">
+  </center>
+</body>
+<script>
+    let d = document;
+    let candle = d.querySelector('#candle');
+    candle.onmouseover = function(){
+        candle.src = 'lightCandles.jpg';
+    };
+    candle.onmouseout = function(){
+        candle.src = 'candles.jpg';
+    };
+</script>
+</html>

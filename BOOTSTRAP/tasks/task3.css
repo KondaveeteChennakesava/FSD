@@ -1,0 +1,11 @@
+#main
+{
+	border:5px solid black;
+}
+#same
+{
+	height:100px;
+	text-align:center;
+	border:1px solid black;
+	font-size:30px;
+}

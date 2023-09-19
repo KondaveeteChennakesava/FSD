@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>mouseEvents</title>
+</head>
+<body>
+	<button id="btn">Click here</button>
+</body>
+<script type="text/javascript">
+	let d = document;
+	let bgc = d.querySelector('#btn');
+	bgc.onmouseover = function(){
+		d.body.style.backgroundColor = 'red';
+	};
+	bgc.onmouseout = function(){
+		d.body.style.backgroundColor = 'green';
+	};
+</script>
+</html>

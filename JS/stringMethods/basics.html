@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Basics</title>
+	<style type="text/css">
+		td{
+			width: 20px;
+			height: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<!-- <center> -->
+		<h3>String Methods</h3>
+		<table border="" cellspacing="0">
+			<tr>
+				<td>0</td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>d</td>
+				<td>r</td>
+				<td>i</td>
+				<td>v</td>
+				<td>e</td>
+				<td>&nbsp</td>
+				<td>R</td>
+				<td>e</td>
+				<td>a</td>
+				<td>d</td>
+				<td>y</td>
+			</tr>
+			<tr>
+				<td>-11</td>
+				<td>-10</td>
+				<td>-9</td>
+				<td>-8</td>
+				<td>-7</td>
+				<td>-6</td>
+				<td>-5</td>
+				<td>-4</td>
+				<td>-3</td>
+				<td>-2</td>
+				<td>-1</td>
+			</tr>
+		</table>
+	<!-- </center> -->
+</body>
+<script type="text/javascript">
+	function getStr(str){
+		document.write("<strong>"+str+"</strong><br>");
+	}
+	let s = 'drive ready'
+	getStr(s)
+	getStr("Length of given string is: "+s.length)
+	getStr("Character at 3rd index is: "+s.charAt(3))
+	//Neagtive index return undefined
+	getStr("Character at -1th index is: "+s.charAt(-1))
+	getStr("Index of v is: "+s.indexOf('v'))
+	getStr("Index of 'r' is: "+s.indexOf('r'))
+	getStr("Index of last 'r' is: "+s.lastIndexOf('r'))
+	let k = ' CHENNAKESAVA !'.toLowerCase()//converts all the letters in the string into lower case
+	getStr(k.toLowerCase())
+	getStr(s.toUpperCase())
+	getStr('lorry '.concat(s,k,' ready....!'))
+	getStr(k.trim())
+
+
+	let str = 'kk,rajesh&madhan'
+	console.log(str.split(','))//converts string into array
+	console.log(str.split('&'))//converts string into array
+
+
+	console.log(str.startsWith('kk'))// returns only a boolean value
+	console.log(str.endsWith('an'))// returns only a boolean value
+	getStr(s.slice(1,5))
+	getStr(s.slice(-11))
+
+	let x = 'fullstack';
+	getStr(x.substring(0))
+	getStr(x.substring(0,4))
+	getStr(x.substring(4))
+	getStr(x.substring(-2))// Negative indexing won't work for substrings if we use it whole string will be printed
+
+	let str1 = 'chenna kesava ';
+	getStr(str1.replace('kesava','kondaveete'))
+	getStr(str1.repeat(3))
+</script>
+</html>

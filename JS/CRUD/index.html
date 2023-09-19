@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table with Add, Edit, Delete, and Save</title>
+</head>
+<body>
+
+<h2>Product Details</h2>
+<table id="productTable" border="1">
+  <tr>
+    <th>Product Id</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+</table>
+
+<br>
+
+<button id="addButton">Add New</button>
+
+<script>
+var isEditMode = false;
+var editedRow = null;
+
+function createRow(id, name, price) {
+  var newRow = document.createElement("tr");
+
+  var idCell = document.createElement("td");
+  idCell.textContent = id;
+
+  var nameCell = document.createElement("td");
+  nameCell.textContent = name;
+
+  var priceCell = document.createElement("td");
+  priceCell.textContent = price;
+
+  var actionsCell = document.createElement("td");
+  var editButton = document.createElement("button");
+  editButton.textContent = "Edit";
+  editButton.addEventListener("click", function(){
+    editRow(newRow);
+  });
+
+  var deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.addEventListener("click", function(){
+    deleteRow(newRow);
+  });
+
+  actionsCell.appendChild(editButton);
+  actionsCell.appendChild(deleteButton);
+
+  newRow.appendChild(idCell);
+  newRow.appendChild(nameCell);
+  newRow.appendChild(priceCell);
+  newRow.appendChild(actionsCell);
+
+  return newRow;
+}
+
+function editRow(row) {
+  if (isEditMode) {
+    alert("Please save the previous changes first.");
+    return;
+  }
+
+  isEditMode = true;
+  editedRow = row;
+
+  var cells = row.getElementsByTagName("td");
+  var id = cells[0].textContent;
+  var name = cells[1].textContent;
+  var price = cells[2].textContent;
+
+  cells[0].innerHTML = '<input type="text" value="' + id + '">';
+  cells[1].innerHTML = '<input type="text" value="' + name + '">';
+  cells[2].innerHTML = '<input type="text" value="' + price + '">';
+
+  var actionsCell = cells[3];
+  actionsCell.innerHTML = '<button onclick="saveRow(this)">Save</button>';
+}
+
+function saveRow(button) {
+  var row = button.parentElement.parentElement;
+  var cells = row.getElementsByTagName("td");
+
+  var id = cells[0].querySelector("input").value;
+  var name = cells[1].querySelector("input").value;
+  var price = cells[2].querySelector("input").value;
+
+  cells[0].textContent = id;
+  cells[1].textContent = name;
+  cells[2].textContent = price;
+
+  var actionsCell = cells[3];
+  actionsCell.innerHTML = '<button onclick="editRow(this)">Edit</button> <button onclick="deleteRow(this)">Delete</button>';
+
+  isEditMode = false;
+  editedRow = null;
+}
+
+function deleteRow(row) {
+  if (isEditMode && editedRow === row.parentElement.parentElement) {
+    alert("Please save the changes before deleting.");
+    return;
+  }
+
+  var confirmation = confirm("Do you want to delete the record?");
+  if (confirmation) {
+    row.parentElement.parentElement.remove();
+  }
+}
+
+function addRow() {
+  if (isEditMode) {
+    alert("Please save the previous changes first.");
+    return;
+  }
+
+  var table = document.getElementById("productTable");
+  var newRow = createRow("", "", "");
+
+  table.appendChild(newRow);
+}
+
+document.getElementById("addButton").addEventListener("click", addRow);
+
+</script>
+
+</body>
+</html>

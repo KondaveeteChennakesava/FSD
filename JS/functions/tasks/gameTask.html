@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game</title>
+</head>
+<body>
+    <center>
+        <h1>Play a game</h1>
+        <label><input type="radio" name="selnum" value="1">1</label>
+        <label><input type="radio" name="selnum" value="2">2</label>
+        <label><input type="radio" name="selnum" value="3">3</label>
+        <label><input type="radio" name="selnum" value="4">4</label>
+        <label><input type="radio" name="selnum" value="5">5</label>
+        <p>Computer Generated:</p>
+        <p id = "pId"></p>
+        <br><br>
+        <button onclick="goo()" id="gooo">Go!</button>
+        <p id = "result"></p>
+    </center>
+</body>
+<script type="text/javascript">
+    goo=() => {
+    let ginp=Math.floor(Math.random()*5)+1;
+    document.getElementById("pId").innerText=ginp;
+    let grd=document.querySelector('input[name="selnum"]:checked').value;
+    if(grd==ginp){
+        document.getElementById('result').innerText="You won!";
+    }else{
+        document.getElementById('result').innerText="You lost!";
+    }
+}
+</script>
+</html>

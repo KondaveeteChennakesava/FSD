@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Palindrome or not</title>
+</head>
+<body style="text-align: center;">
+</body>
+<script type="text/javascript">
+	let num = prompt('enter a number');
+	const reverse = (num) => parseInt(String(num).split("").reverse().join(""), 10);
+	let rnum = reverse(num);
+	if(num == rnum){
+		document.write("Num: "+num+" ")
+		document.write('is a Palindrome');
+	}else{
+		document.write("Num: "+num+" ")
+		document.write('is not a Palindrome');
+	}
+</script>
+</html>

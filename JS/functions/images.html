@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>task</title>
+</head>
+<body>
+	<center>
+		<div>
+			<img id="img1" src="travel1.png" style="height: 200px;">
+			<img id="img2" src="travel2.jpg" style="height: 200px;">
+			<img id="img3" src="travel3.avif" style="height: 200px;">
+		</div>
+		<div><img id="mainImg" src="" style="height: 200px;"></div>
+	</center>
+</body>
+<script type="text/javascript">
+	let d = document;
+	let img1 = d.getElementById('img1');
+	let img2 = d.getElementById('img2');
+	let img3 = d.getElementById('img3');
+	let mainImg = d.getElementById('mainImg');
+
+
+	img1.onclick = function(){
+		mainImg.src = img1.src;
+	};
+	
+
+	img2.onclick = function(){
+		mainImg.src = img2.src;
+	};
+	
+
+
+	img3.onclick = function(){
+		mainImg.src = img3.src;
+	};
+	
+</script>
+</html>

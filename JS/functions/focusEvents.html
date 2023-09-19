@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>focusEvents</title>
+</head>
+<body>
+	<form>
+		<label>Focus: 
+			<input type="text" name="" onfocus="fun(this,'red')">
+		</label>
+		<br><br>
+		<label>Blur: &nbsp
+			<input type="text" name="" onblur="fun(this,'lavender')">
+		</label>
+	</form>
+</body>
+<script type="text/javascript">
+	function fun(now,color){
+		now.style.background = color;
+	}
+</script>
+</html>

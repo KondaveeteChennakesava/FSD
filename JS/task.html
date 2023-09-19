@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>duplicate elements</title>
+	<style type="text/css">
+		button{
+			background-color: rgb(255, 127, 127, 0.5);
+			height: 25px;
+			width: 100px;
+		}
+		input{
+			height: 25px;
+			width: 150px;
+			border: 2px solid black;
+			border-radius: 25px;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<input type="text" name="" id="name" placeholder="Enter a name"><br><br>
+		<button id="btn">Check count</button><br><br>
+		<p id="para"></p>
+	</center>
+</body>
+<script type="text/javascript">
+	let x = document.querySelector('#btn');
+	x.onclick = function(){
+		let arr = new Array('ravi','raju','ramya','ravi','ramya');
+		// document.write(arr,"<br>")
+		var count = 0;
+		var val = document.querySelector('#name').value;
+		for (var i = 0;i<arr.length;i++){
+			if (arr[i] == val){
+				count += 1;
+			}
+		}
+		document.querySelector('#para').innerText = count;
+	}
+</script>
+</html>

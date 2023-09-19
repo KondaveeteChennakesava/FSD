@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bulb</title>
+	<style type="text/css">
+		.bulb{
+			height: 200px;
+			width: 200px;
+			border-radius: 50%;
+			border: 4px solid black;
+		}
+		#div{
+			height: 200px;
+			width: 200px;
+			background-image: linear-gradient(135deg,red,orange,yellow);
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<div class="bulb"></div>
+		<br>
+		<button id="btn">ON</button>
+		<br><br>
+		<!-- <div id="div">.</div> -->
+	</center>
+</body>
+<script type="text/javascript">
+	let d = document;
+	let bulb = d.querySelector('.bulb');
+	let btn = d.querySelector('#btn')
+	let temp = 0
+	btn.onclick = function(){
+		if(temp == 0){
+			bulb.style.backgroundImage='linear-gradient(135deg,red,orange,yellow,pink)'
+			temp = 1
+			btn.innerHTML = 'OFF';
+		}
+		else{
+			bulb.style.backgroundImage='linear-gradient(white,white)';
+			temp = 0;
+			btn.innerHTML = 'ON';
+		}
+	};
+</script>
+</html>

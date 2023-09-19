@@ -1,0 +1,71 @@
+/*
+.p{
+	color: red;
+	font-size: 30px;
+	font-family: cursive;
+	border: 3px solid yellow;
+}
+#h1{
+	color: blue;
+	font-size: 60px;
+	font-family: italic;
+	border: 10px solid hotpink;
+	background-color: red;
+	text-align: center;
+}
+p{
+	color: hotpink;
+	font-size: 30px;
+	font-family: cursive;
+	border: 3px solid yellow;
+}
+div{
+	float: right;
+	background-color: hotpink;
+	height: 300px;
+	width: 500px;
+}
+*{
+	font-family: italic;
+	font-size: 30px;
+}
+a[href]{
+	color: mediumspringgreen;
+}
+img[src]{
+	height:500px;
+	width: 500px;
+	border: 5px solid red;
+}
+img[alt]{
+	font-size: 50px;
+	color: black;
+}
+input[type="number"]{
+	color: red;
+	font-family: cursive;
+}
+*/
+div{
+	background-color: hotpink;
+	height: 80px;
+	width: 80px;
+}
+div:hover{
+	height: 100px;
+	width: 100px;
+	background-color: greenyellow;
+}
+a:hover{
+	color: red;
+	font-size: 30px;
+}
+a:visited{
+	color: black;
+}
+a:active{
+	color: yellow;
+}
+a:link{
+	color: green;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>task</title>
+</head>
+<body>
+	<center>
+	<!-- <button id="sd">Show Div</button>
+	<button id="hd">Hide Div</button>
+	<br><br>
+	<div id="dd" style="height: 600px; width: 200px; background-color: rgba(127, 127, 255, 1.0);display: none;">
+		<img src="../../resources/images/travel.png" alt="image">
+	</div> -->
+	<button id="inc">Increase</button>
+	<button id="dec">Decrease</button>
+	<br>
+	<span>Output</span>
+	<p id="para" style="margin-top: 2px;"></p>
+</center>
+</body>
+<script type="text/javascript">
+	let d = document;
+// 	let sd = d.getElementById('sd');
+// 	let hd = d.getElementById('hd');
+// 	let di = d.getElementById('dd');
+// 	sd.onclick=function(){
+// 		di.style.display='block';
+// 	}
+// 	hd.onclick=function(){
+// 		di.style.display='none';
+// 	}
+	let inc = d.getElementById('inc')
+	let dec = d.getElementById('dec')
+	let para = d.getElementById('para')
+	var i = 0;
+	inc.onclick=function(){
+		if(i<6){
+			var res = i++;
+			para.innerText = res;
+		}
+	}
+	dec.onclick=function(){
+		if(i>0){
+			var res = i--;
+			para.innerText = res;
+		}
+	}
+</script>
+</html>

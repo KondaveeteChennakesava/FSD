@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <center>
+        <img id="cake" src="fullCake.jpg" width="400px" height="400px">
+    </center>
+</body>
+<script type="text/javascript">
+    let d = document;
+    let cake = d.querySelector('#cake');
+    cake.onmouseover = function(){
+        cake.src = 'halfCake.jpg';
+    };
+    cake.onmouseout = function(){
+        cake.src = 'fullCake.jpg';
+    };
+</script>
+</html>

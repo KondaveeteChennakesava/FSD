@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>task</title>
+</head>
+<body>
+	<form>
+		<label>
+			Enter Name: 
+			<input type="text" onkeyup="fun(this.value)" value="" name="" placeholder="King Kesava KK">
+		</label>
+		<span id="span"></span>
+	</form>
+</body>
+<script type="text/javascript">
+	function fun(value){
+		document.getElementById('span').innerHTML = 'Please enter name.'
+		document.getElementById('span').style.color = 'red';
+	};
+</script>
+</html>

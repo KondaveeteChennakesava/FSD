@@ -1,0 +1,98 @@
+.div
+{
+   background-color:lavender;
+   height:800px;
+   width:890px;
+   padding-top:20px;
+   padding-right:20px;
+   padding-bottom:30px;
+   padding-left:20px;
+}
+.div1
+{
+	background-color:white;
+	height:50px;
+	width:800px;
+   margin-bottom:10px;
+   padding-right: 20px;
+}
+.div2
+{
+	background-color:lavender;
+	height:500px;
+	width:800px;
+}
+.div3
+{
+	background-color:white;
+	height:530px;
+	width:260px;
+	float:left;
+	padding-right:10px;
+/*	padding-top:30px;*/
+/*	border-radius:20px;*/
+}
+.div4
+{
+	background-color:lavender;
+	height:600px;
+	width:500px;
+	float:right;
+}
+.div5
+{
+	background-color:white;
+	height:250px;
+	width:500px;
+	padding-top:50px;
+	padding-right: 20px;
+/*	margin-right:50px;*/
+/*	padding-right:30px;*/
+/*	border-radius:10px;*/
+
+}
+.div6
+{
+	background-color:white;
+	height:300px;
+	width:480px;
+	padding-left:20px;
+	padding-right: 20px;
+	margin-right:20px;
+}
+select
+{
+	background-color:red;
+	color:white;
+	border-radius:5px;
+	font-size:15px;
+}
+span
+{
+	background-color:blue;
+	color:white;
+	border-radius:5px;
+	border:40px;
+	padding:4px;
+}
+form
+{
+	padding:5px;
+}
+img
+{
+	height:150px;
+	width:150px;
+	padding-top:30px;
+}
+p
+{
+	color:grey;
+}
+i
+{
+	padding-left:10px;
+}
+progress{
+	width: 100%;
+}

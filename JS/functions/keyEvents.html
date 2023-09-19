@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>keyEvents</title>
+</head>
+<body>
+	<main>
+		<form>
+			<label>
+				Key Down&nbsp
+				<input type="text" name="" value="" onkeydown="fun(this.value)">
+			</label>
+			<br><br>
+			<span id="span"></span>
+			<br><br>
+			<label>
+				Key Up&nbsp
+				<input type="text" name="" value="" onkeyup ="fun(this.value)">
+			</label>
+			<br><br>
+			<label>
+				Key Press&nbsp
+				<input type="text" name="" value="" onkeypress="fun(this.value)">
+			</label>
+		</form>
+	</main>
+</body>
+<script type="text/javascript">
+	function fun(sample){
+		document.getElementById('span').innerText = sample;
+		document.body.style.backgroundColor = sample;
+	};
+</script>
+</html>

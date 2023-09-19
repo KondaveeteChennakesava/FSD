@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Destructing</title>
+</head>
+<body>
+</body>
+	<script type="text/javascript">
+		var [a,b,c,d] = ['Destructing','Javascript','Bootstrap','HTML']
+		console.log(a,b,c,d)
+
+		var [a,b,,d] = [10,20,30,40] // Here 30 will not assigned to any variable
+		console.log(a,b,d)
+	</script>
+</html>

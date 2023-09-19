@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>inLineEvent</title>
+</head>
+<body>
+	<!--<button onclick="alert('data uploaded')">upload</button> -->
+	<!-- <button onclick="test()">upload</button> -->
+	<button id="btnId">upload</button>
+</body>
+<script type="text/javascript">
+	// function test(){
+	// 	alert('data not uploaded')
+	// 	document.body.style.background = 'rgba(255,0,0,0.5)'
+	// }
+	// btn.onclick=function(){
+	// 	alert('eventHandling')
+	// 	document.body.style.background = 'rgba(0,255,0,0.5)'
+	// }
+	let btn = document.getElementById('btnId');
+	btn.addEventListener('click',test)
+	function test(){
+		alert('saved')
+		document.body.style.background = 'rgba(0,0,255,0.5)'
+	}
+</script>
+</html>

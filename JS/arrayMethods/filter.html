@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>filter method</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+	let nums = [8,9,10,11,45,69];
+
+	let evenNums = nums.filter(function(ele){
+		return ele%2 == 0;
+	});
+	console.log(evenNums);
+	let oddNums = nums.filter(function(ele){
+		return ele%2 != 0;
+	})
+	console.log(oddNums);
+</script>
+</html>

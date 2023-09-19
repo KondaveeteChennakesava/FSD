@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>forEach method</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+	// This method will not create new array and return it after iteration will completed.
+	// let salaries = [40000,250000,300000];
+	// console.log(salaries);
+	// //Here we are using anonymous function we can also use normal function
+	// salaries.forEach(function(amount,index,arr){
+	// 	var increment = amount/10;
+	// 	console.log(increment);
+	// 	arr[index] = amount + increment;
+	// });
+	// console.log(salaries);
+
+	let ramr = ['venkatesh','ramesh','suresh'];
+	let getOneName = ramr.find(function(name){
+		return name.startsWith('r');
+	});
+	console.log(getOneName);
+</script>
+</html>

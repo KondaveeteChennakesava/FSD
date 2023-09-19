@@ -1,0 +1,10 @@
+/*.d1{
+	background-image: url('kingfisher.jpg');
+	height: 600px;
+	background-repeat: no-repeat;
+}*/
+body{
+	background-image: url("kingfisher.jpg");
+	background-repeat: no-repeat;
+	height: 30px;
+}

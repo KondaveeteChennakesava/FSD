@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<br>
+		<label>
+			Enter Name:
+			<input type="text" name="" id="a" onkeyup="get(this.value)">
+		</label>
+		<div id="text"></div>
+	</center>
+</body>
+<script type="">
+	function get(val){
+	if (val.length==0) {
+		document.getElementById('text').innerHTML='<p style="color:red">Please enter the name</p>'
+		document.getElementById('a').style.border='1px solid red'
+	}else{
+		document.getElementById('text').innerHTML=''
+		document.getElementById('a').style.border='1px solid black'
+	}
+	}
+</script>
+</html>

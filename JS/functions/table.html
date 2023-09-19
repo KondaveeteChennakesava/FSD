@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>tables</title>
+</head>
+<body>
+	
+	<table border="" cellspacing="0" style="text-align: center; margin:0 auto;">
+		<thead>
+			<tr>
+				<th>Course Name</th>
+				<th>Course Number</th>
+				<th>Course Fee</th>
+				<th>Course Place</th>
+			</tr>
+		</thead>
+		<tbody id='tbode'></tbody>
+	</table>
+
+</body>
+<script type="text/javascript">
+	data = [
+		{name:'html',number:'23423',fee:'5000',place:'thub'},
+		{name:'css',number:'49354',fee:'5000',place:'thub'},
+		{name:'bootstrap',number:'696969',fee:'5000',place:'thub'},
+		{name:'javascript',number:'421043',fee:'5000',place:'thub'}
+	]
+	console.log(data.length)
+	let d = document;
+	let x = d.getElementById('tbode');
+	// for (let obj of data) {
+	// 	var tr = x.insertRow();
+	// 	tr.insertCell().textContent = obj.name;
+	// 	tr.insertCell().textContent = obj.number;
+	// 	tr.insertCell().textContent = obj.fee;		
+	// 	tr.insertCell().textContent = obj.place;		
+	// }
+
+
+
+
+
+
+	for (var i = 0; i < data.length; i++) {
+		var tr = x.insertRow();
+		for(let keys in data[i]){
+			tr.insertCell().innerHTML = data[i][keys];
+		}
+	}
+ </script>
+</html>
