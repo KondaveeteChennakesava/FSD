@@ -1,0 +1,736 @@
+mongosh> show dbs
+admin      40.00 KiB
+config     72.00 KiB
+local      40.00 KiB
+loginInfo   8.00 KiB
+mongosh> use loginInfo
+switched to db loginInfo
+loginInfo> show collections
+Names
+loginInfo> db
+loginInfo
+loginInfo> use students
+switched to db students
+students> db.createCollection("Names")
+{ ok: 1 }
+students> show collections
+Names
+students> db.Names.insertOne({fname:"King",lname:"Kesava",rollno:"L6",branch:"ECE"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65125fcbbf808884d0823e68")
+}
+students> db.Names.find()
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE'
+  }
+]
+students> show dbs
+admin      40.00 KiB
+config    108.00 KiB
+local      40.00 KiB
+students   40.00 KiB
+students> db.Names.insertMany({fname:"Vuddaraju",lname:"Sasankh",rollno:"Q3",branch:"ECE"},{fname:"Maradani",lname:"Rajesh",rollno:"M2",branch:"ECE"},{fname:"Kanregula",lname:"Madhan",rollno:"K7",branch:"ECE"})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+students> db.Names.insertMany([{fname:"Vuddaraju",lname:"Sasankh",rollno:"Q3",branch:"ECE"},{fname:"Maradani",lname:"Rajesh",rollno:"M2",branch:"ECE"},{fname:"Kanregula",lname:"Madhan",rollno:"K7",branch:"ECE"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("651261cfbf808884d0823e69"),
+    '1': ObjectId("651261cfbf808884d0823e6a"),
+    '2': ObjectId("651261cfbf808884d0823e6b")
+  }
+}
+students> db.Names.find()
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kanregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE'
+  }
+]
+students> db.Names.insertOne({fname:"Ram",lname:"Reddy",rollno:"P1",branch:"ECE"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("651262babf808884d0823e6c")
+}
+students> db.Names.find()
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kanregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651262babf808884d0823e6c"),
+    fname: 'Ram',
+    lname: 'Reddy',
+    rollno: 'P1',
+    branch: 'ECE'
+  }
+]
+students> db.Names.find()
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651262babf808884d0823e6c"),
+    fname: 'Ram',
+    lname: 'Reddy',
+    rollno: 'P1',
+    branch: 'ECE'
+  }
+]
+students> db.Names.find().count()
+5
+students> db.Names.find({fname:"King"})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE'
+  }
+]
+students> db.Names.find({fname:"King"},{fname:"Ram"})
+[ { _id: ObjectId("65125fcbbf808884d0823e68"), fname: 'Ram' } ]
+students> db.Names.find([{fname:"King"},{fname:"Ram"}])
+MongoInvalidArgumentError: Query filter must be a plain object or ObjectId
+students> db.Names.find({fname:"King"},{fname:"Ram"})
+[ { _id: ObjectId("65125fcbbf808884d0823e68"), fname: 'Ram' } ]
+students> db.Names.find({Branch:"ECE"})
+
+students> db.Names.find({Branch:"ECE"})
+
+students> db.Names.find({branch:"ECE"})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651262babf808884d0823e6c"),
+    fname: 'Ram',
+    lname: 'Reddy',
+    rollno: 'P1',
+    branch: 'ECE'
+  }
+]
+students> db.Names.find({fname:"King"},{lname:"Reddy"})
+[ { _id: ObjectId("65125fcbbf808884d0823e68"), lname: 'Reddy' } ]
+students> db.Names.find({fname:"King"},{lname:"Kesava"})
+[ { _id: ObjectId("65125fcbbf808884d0823e68"), lname: 'Kesava' } ]
+students> db.Names.find({fname:"King",lname:"Kesava"})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE'
+  }
+]
+students> skip(2)
+ReferenceError: skip is not defined
+students> db.Names.skip(2)
+TypeError: db.Names.skip is not a function
+students> db.Names.find().skip(2)
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651262babf808884d0823e6c"),
+    fname: 'Ram',
+    lname: 'Reddy',
+    rollno: 'P1',
+    branch: 'ECE'
+  }
+]
+students> db.Names.find().limit(2)
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE'
+  }
+]
+students> db.Names.find().limit(2).skip(2)
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE'
+  }
+]
+students> db.Names.find().skip(2).limit(2)
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE'
+  }
+]
+students> db.Names.updateOne({fname:"King"},{$set:{marks:'90'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+students> db.Names.find()
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE'
+  },
+  {
+    _id: ObjectId("651262babf808884d0823e6c"),
+    fname: 'Ram',
+    lname: 'Reddy',
+    rollno: 'P1',
+    branch: 'ECE'
+  }
+]
+students> db.Names.updateOne({fname:"Vuddaraju"},{$set:{marks:'85'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+students> db.Names.updateOne({fname:"Maradani"},{$set:{marks:'92'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+students> db.Names.updateOne({fname:"Kandregula"},{$set:{marks:'99'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+students> db.Names.updateOne({fname:"Ram"},{$set:{marks:'69'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+students> db.Names.find()
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE',
+    marks: '85'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE',
+    marks: '92'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE',
+    marks: '99'
+  },
+  {
+    _id: ObjectId("651262babf808884d0823e6c"),
+    fname: 'Ram',
+    lname: 'Reddy',
+    rollno: 'P1',
+    branch: 'ECE',
+    marks: '69'
+  }
+]
+students> db.Names.find({marks:{$eq:'90'}})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90'
+  }
+]
+students> db.Names.find({marks:{$gte:'90'}})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE',
+    marks: '92'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE',
+    marks: '99'
+  }
+]
+students> db.Names.find().skip(2).limit(2)
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE',
+    marks: '92'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE',
+    marks: '99'
+  }
+]
+students> db.Names.find().limit(2).skip(2)
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE',
+    marks: '92'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE',
+    marks: '99'
+  }
+]
+students> db.Names.find().skip(2)
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE',
+    marks: '92'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE',
+    marks: '99'
+  },
+  {
+    _id: ObjectId("651262babf808884d0823e6c"),
+    fname: 'Ram',
+    lname: 'Reddy',
+    rollno: 'P1',
+    branch: 'ECE',
+    marks: '69'
+  }
+]
+students> db.Names.find().limit(2)
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE',
+    marks: '85'
+  }
+]
+students> db.Names.find().limit(2).skip(2)
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE',
+    marks: '92'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE',
+    marks: '99'
+  }
+]
+students> db.Names.find().skip(2).limit(2)
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e6a"),
+    fname: 'Maradani',
+    lname: 'Rajesh',
+    rollno: 'M2',
+    branch: 'ECE',
+    marks: '92'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e6b"),
+    fname: 'Kandregula',
+    lname: 'Madhan',
+    rollno: 'K7',
+    branch: 'ECE',
+    marks: '99'
+  }
+]
+students> db.Names.updateOne({fname:"King"},{$set:{College:'AEC'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+students> db.Names.find({fname:'King'})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90',
+    College: 'AEC'
+  }
+]
+students> db.Names.find({marks:{$lt:"80"},{$gte:"90"}})
+Uncaught:
+SyntaxError: Unexpected token (1:32)
+
+> 1 | db.Names.find({marks:{$lt:"80"},{$gte:"90"}})
+    |                                 ^
+  2 |
+
+students> db.Names.find({marks:{$lt:"90"},{$gte:"80"}})
+Uncaught:
+SyntaxError: Unexpected token (1:32)
+
+> 1 | db.Names.find({marks:{$lt:"90"},{$gte:"80"}})
+    |                                 ^
+  2 |
+
+students> db.Names.find({marks:{$lt:"90",$gte:"80"}})
+[
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE',
+    marks: '85'
+  }
+]
+students> db.Names.find({marks:{$or:{$eq:"90",$eq:"80"}}})
+MongoServerError: unknown operator: $or
+students> db.Names.find({marks:{$or:[{$eq:"90",$eq:"80"}}]})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:46)
+
+> 1 | db.Names.find({marks:{$or:[{$eq:"90",$eq:"80"}}]})
+    |                                               ^
+  2 |
+
+students> db.Names.find({marks:{$or:[{$eq:"90",$eq:"80"}]}})
+MongoServerError: unknown operator: $or
+students> db.Names.find({$or:[{marks:{$eq:'80'},{$eq:'90'}}]})
+Uncaught:
+SyntaxError: Unexpected token (1:38)
+
+> 1 | db.Names.find({$or:[{marks:{$eq:'80'},{$eq:'90'}}]})
+    |                                       ^
+  2 |
+
+students> db.Names.find({$or:[{marks:{$eq:'80',$eq:'90'}}]})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90',
+    College: 'AEC'
+  }
+]
+students> db.Names.find({$or:[{marks:'90'},{marks:'85'}]})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90',
+    College: 'AEC'
+  },
+  {
+    _id: ObjectId("651261cfbf808884d0823e69"),
+    fname: 'Vuddaraju',
+    lname: 'Sasankh',
+    rollno: 'Q3',
+    branch: 'ECE',
+    marks: '85'
+  }
+]
+students> db.Names.find({$and:[{marks:'90'},{fname:'Kind'}]})
+
+students> db.Names.find({$and:[{marks:'90'},{fname:'King'}]})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90',
+    College: 'AEC'
+  }
+]
+students> db.Names.find({$and:[{marks:'90'},{marks:'85'}]})
+
+students> db.Names.find({$and:[{marks:'90'}],[{marks:'85'}]})
+Uncaught:
+SyntaxError: Unexpected token (1:49)
+
+> 1 | db.Names.find({$and:[{marks:'90'}],[{marks:'85'}]})
+    |                                                  ^
+  2 |
+
+students> db.Names.find({$and:[{marks:'90'}],[{marks:'85'}]})
+Uncaught:
+SyntaxError: Unexpected token (1:49)
+
+> 1 | db.Names.find({$and:[{marks:'90'}],[{marks:'85'}]})
+    |                                                  ^
+  2 |
+
+students> db.Names.find({$and:[{marks:'90'},{fname:'King'}]})
+[
+  {
+    _id: ObjectId("65125fcbbf808884d0823e68"),
+    fname: 'King',
+    lname: 'Kesava',
+    rollno: 'L6',
+    branch: 'ECE',
+    marks: '90',
+    College: 'AEC'
